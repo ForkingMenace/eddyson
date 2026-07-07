@@ -177,6 +177,116 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
+ * Item in *Expertise → Default → Primary → card*
+ */
+export interface ExpertiseSliceDefaultPrimaryCardItem {
+  /**
+   * headline field in *Expertise → Default → Primary → card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.card[].headline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * copy field in *Expertise → Default → Primary → card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.card[].copy
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copy: prismic.KeyTextField;
+
+  /**
+   * image field in *Expertise → Default → Primary → card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.card[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Expertise → Default → Primary*
+ */
+export interface ExpertiseSliceDefaultPrimary {
+  /**
+   * headline field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * copy field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.copy
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copy: prismic.KeyTextField;
+
+  /**
+   * quote field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.quote
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * card field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.card[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  card: prismic.GroupField<Simplify<ExpertiseSliceDefaultPrimaryCardItem>>;
+}
+
+/**
+ * Default variation for Expertise Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ExpertiseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExpertiseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Expertise*
+ */
+type ExpertiseSliceVariation = ExpertiseSliceDefault;
+
+/**
+ * Expertise Shared Slice
+ *
+ * - **API ID**: `expertise`
+ * - **Description**: Expertise
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ExpertiseSlice = prismic.SharedSlice<
+  "expertise",
+  ExpertiseSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -305,6 +415,11 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      ExpertiseSlice,
+      ExpertiseSliceDefaultPrimaryCardItem,
+      ExpertiseSliceDefaultPrimary,
+      ExpertiseSliceVariation,
+      ExpertiseSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

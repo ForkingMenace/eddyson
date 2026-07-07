@@ -1,0 +1,71 @@
+{
+  "id": "expertise",
+  "type": "SharedSlice",
+  "name": "Expertise",
+  "description": "Expertise",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "headline",
+            "placeholder": ""
+          }
+        },
+        "copy": {
+          "type": "Text",
+          "config": {
+            "label": "copy",
+            "placeholder": ""
+          }
+        },
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "quote",
+            "placeholder": ""
+          }
+        },
+        "card": {
+          "type": "Group",
+          "config": {
+            "label": "card",
+            "repeat": true,
+            "fields": {
+              "headline": {
+                "type": "Text",
+                "config": {
+                  "label": "headline",
+                  "placeholder": ""
+                }
+              },
+              "copy": {
+                "type": "Text",
+                "config": {
+                  "label": "copy",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
