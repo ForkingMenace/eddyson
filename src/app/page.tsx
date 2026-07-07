@@ -1,13 +1,29 @@
-import Image from "next/image";
+import { type Metadata } from "next";
+import { notFound } from "next/navigation";
+import { asImageSrc } from "@prismicio/client";
+import { SliceZone } from "@prismicio/react";
 
-export default function Home() {
+import { createClient } from "@/prismicio";
+import { components } from "@/slices";
+
+export default async function Page() {
+  const client = createClient();
+  const page = await client.getSingle("homepage").catch(() => notFound());
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <h1 className="text-5xl font-display font-bold text-black dark:text-white sm:text-6xl">
-          Your partner in the EDI jungle
-        </h1>
-      </main>
-    </div>
+    <SliceZone slices={page.data.slices} components={components} />
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle("homepage").catch(() => notFound());
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+    openGraph: {
+      images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
+    },
+  };
 }
