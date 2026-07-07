@@ -1,0 +1,71 @@
+{
+  "id": "partner_program",
+  "type": "SharedSlice",
+  "name": "PartnerProgram",
+  "description": "PartnerProgram",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "topline": {
+          "type": "Text",
+          "config": {
+            "label": "topline",
+            "placeholder": ""
+          }
+        },
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "headline",
+            "placeholder": ""
+          }
+        },
+        "copy": {
+          "type": "Text",
+          "config": {
+            "label": "copy",
+            "placeholder": ""
+          }
+        },
+        "card": {
+          "type": "Group",
+          "config": {
+            "label": "card",
+            "repeat": true,
+            "fields": {
+              "headline": {
+                "type": "Text",
+                "config": {
+                  "label": "headline",
+                  "placeholder": ""
+                }
+              },
+              "copy": {
+                "type": "Text",
+                "config": {
+                  "label": "copy",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -66,7 +66,8 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  PartnerProgramSlice | ExpertiseSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -388,6 +389,116 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *PartnerProgram → Default → Primary → card*
+ */
+export interface PartnerProgramSliceDefaultPrimaryCardItem {
+  /**
+   * headline field in *PartnerProgram → Default → Primary → card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.card[].headline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * copy field in *PartnerProgram → Default → Primary → card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.card[].copy
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copy: prismic.KeyTextField;
+
+  /**
+   * image field in *PartnerProgram → Default → Primary → card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.card[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *PartnerProgram → Default → Primary*
+ */
+export interface PartnerProgramSliceDefaultPrimary {
+  /**
+   * topline field in *PartnerProgram → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.topline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  topline: prismic.KeyTextField;
+
+  /**
+   * headline field in *PartnerProgram → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * copy field in *PartnerProgram → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.copy
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copy: prismic.KeyTextField;
+
+  /**
+   * card field in *PartnerProgram → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_program.default.primary.card[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  card: prismic.GroupField<Simplify<PartnerProgramSliceDefaultPrimaryCardItem>>;
+}
+
+/**
+ * Default variation for PartnerProgram Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PartnerProgramSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PartnerProgramSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PartnerProgram*
+ */
+type PartnerProgramSliceVariation = PartnerProgramSliceDefault;
+
+/**
+ * PartnerProgram Shared Slice
+ *
+ * - **API ID**: `partner_program`
+ * - **Description**: PartnerProgram
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PartnerProgramSlice = prismic.SharedSlice<
+  "partner_program",
+  PartnerProgramSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -424,6 +535,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      PartnerProgramSlice,
+      PartnerProgramSliceDefaultPrimaryCardItem,
+      PartnerProgramSliceDefaultPrimary,
+      PartnerProgramSliceVariation,
+      PartnerProgramSliceDefault,
     };
   }
 }

@@ -18,6 +18,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "partner_program": {
+              "type": "SharedSlice"
+            },
+            "expertise": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }
