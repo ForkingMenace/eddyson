@@ -21,7 +21,7 @@ const PartnerProgram: FC<PartnerProgramProps> = ({ slice }) => {
     >
       <div className="container bg-[#212121] text-[#F8F8F8] pb-[57] pt-[70] rounded-2xl">
         <div className="max-w-[739] m-auto">
-          <span className="border-2 border-[]">{slice.primary.topline}</span>
+          <span className="border-2 border-[#ff8831] rounded-2xl p-1 text-sm">{slice.primary.topline}</span>
           <h2 className="font-normal text-[36px] leading-[140%] tracking-normal"> {slice.primary.headline} </h2>
           <p className="m-auto">{slice.primary.copy}</p>
         </div>

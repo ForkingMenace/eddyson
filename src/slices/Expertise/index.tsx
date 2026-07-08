@@ -29,9 +29,9 @@ const Expertise: FC<ExpertiseProps> = ({ slice }) => {
       </div>
 
       <div className="mt-[114]">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-8 max-w-[1400] m-auto">
           {slice.primary.card.map((card) => (
-            <div key={card.headline} className="relative h-[320] overflow-hidden rounded-xl">
+            <div key={card.headline} className="relative h-[448] overflow-hidden rounded-xl">
               <PrismicNextImage field={card.image} className="absolute inset-0 h-full w-full object-cover" />
               <div className="absolute inset-0 bg-black/30" />
               <div className="absolute bottom-0 p-6 text-white">
