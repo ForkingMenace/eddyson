@@ -67,7 +67,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type HomepageDocumentDataSlicesSlice =
-  PartnerProgramSlice | ExpertiseSlice | HeroSlice;
+  ContactSlice | PartnerProgramSlice | ExpertiseSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -176,6 +176,161 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * headline field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * copy field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.copy
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copy: prismic.KeyTextField;
+
+  /**
+   * field1 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field1
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field1: prismic.KeyTextField;
+
+  /**
+   * field2 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field2: prismic.KeyTextField;
+
+  /**
+   * field3 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field3
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field3: prismic.KeyTextField;
+
+  /**
+   * field4 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field4
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field4: prismic.KeyTextField;
+
+  /**
+   * field5 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field5
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field5: prismic.KeyTextField;
+
+  /**
+   * field6 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field6
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field6: prismic.KeyTextField;
+
+  /**
+   * field7 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field7
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field7: prismic.KeyTextField;
+
+  /**
+   * field8 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field8
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field8: prismic.KeyTextField;
+
+  /**
+   * field9 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.field9
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field9: prismic.KeyTextField;
+
+  /**
+   * cta field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.cta
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
 
 /**
  * Item in *Expertise → Default → Primary → card*
@@ -526,6 +681,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
       ExpertiseSlice,
       ExpertiseSliceDefaultPrimaryCardItem,
       ExpertiseSliceDefaultPrimary,

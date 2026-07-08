@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default async function Footer (){
     return (
-        <footer className="bg-[#161616] text-[#FFFFFF] pt-[120] pb-[141] mt-20 ">
+        <footer className="bg-[#161616] text-[#FFFFFF] pt-[120] pb-[141]">
             <div className="container">
                 <Image
                     src="/img/eddyson2.png"

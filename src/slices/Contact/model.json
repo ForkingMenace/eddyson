@@ -1,0 +1,103 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "description": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "headline",
+            "placeholder": ""
+          }
+        },
+        "copy": {
+          "type": "Text",
+          "config": {
+            "label": "copy",
+            "placeholder": ""
+          }
+        },
+        "field1": {
+          "type": "Text",
+          "config": {
+            "label": "field1",
+            "placeholder": ""
+          }
+        },
+        "field2": {
+          "type": "Text",
+          "config": {
+            "label": "field2",
+            "placeholder": ""
+          }
+        },
+        "field3": {
+          "type": "Text",
+          "config": {
+            "label": "field3",
+            "placeholder": ""
+          }
+        },
+        "field4": {
+          "type": "Text",
+          "config": {
+            "label": "field4",
+            "placeholder": ""
+          }
+        },
+        "field5": {
+          "type": "Text",
+          "config": {
+            "label": "field5",
+            "placeholder": ""
+          }
+        },
+        "field6": {
+          "type": "Text",
+          "config": {
+            "label": "field6",
+            "placeholder": ""
+          }
+        },
+        "field7": {
+          "type": "Text",
+          "config": {
+            "label": "field7",
+            "placeholder": ""
+          }
+        },
+        "field8": {
+          "type": "Text",
+          "config": {
+            "label": "field8",
+            "placeholder": ""
+          }
+        },
+        "field9": {
+          "type": "Text",
+          "config": {
+            "label": "field9",
+            "placeholder": ""
+          }
+        },
+        "cta": {
+          "type": "Text",
+          "config": {
+            "label": "cta",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
